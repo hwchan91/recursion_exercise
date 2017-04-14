@@ -10,12 +10,12 @@
 #      seq << b.slice!(0)
 #    end
 #  end
-#  return seq 
+#  return seq
 #end
 
 def merge(a, b, seq = [])
-  return seq.push(b).flatten! if a.empty?
-  return seq.push(a).flatten! if b.empty?
+  return seq += b if a.empty?
+  return seq += a if b.empty?
   seq << a[0] < b[0] ?  a.slice!(0) : b.slice!(0)
   merge (a, b, seq)
 end
